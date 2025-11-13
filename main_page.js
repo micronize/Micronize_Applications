@@ -52,9 +52,12 @@ function mainPageCss() {
       width: 100%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      text-align: center;
       padding: 40px 15px 60px;
       background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
     }
 
     .mainpage_container a {
@@ -65,6 +68,7 @@ function mainPageCss() {
       font-weight: 700;
       letter-spacing: 1px;
       transition: color 0.3s ease, transform 0.3s ease;
+      word-break: break-word;
     }
 
     .mainpage_container a:hover {
@@ -101,10 +105,10 @@ function mainPageCss() {
       padding: 25px;
       display: flex;
       justify-content: center;
+      text-align: center;
       font-size: ${mainTheme.missionTitleFont};
       font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
       color: ${mainTheme.color_title};
-      text-decoration: none;
       font-weight: bold;
       letter-spacing: 0.5px;
     }
@@ -151,7 +155,6 @@ function mainPageCss() {
 
     .request_console button:hover {
       background: linear-gradient(135deg, #00a8ff, #00f2ff);
-      color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
       cursor: pointer;
@@ -160,6 +163,74 @@ function mainPageCss() {
     .request_console button:active {
       transform: translateY(0);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* === Responsive Design === */
+    @media (max-width: 1024px) {
+      .first_image img {
+        width: 85%;
+      }
+      .request_console button {
+        width: 260px;
+        height: 60px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mainpage_container {
+        padding: 30px 10px 40px;
+      }
+
+      .mainpage_container a {
+        font-size: calc(${mainTheme.fontSize_title} * 0.9);
+      }
+
+      .mission p, .why p {
+        width: 90%;
+      }
+
+      .first_image img {
+        width: 90%;
+      }
+
+      .request_console button {
+        width: 220px;
+        height: 55px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mainpage_container {
+        padding: 20px 8px 30px;
+      }
+
+      .mainpage_container a {
+        font-size: calc(${mainTheme.fontSize_title} * 0.75);
+      }
+
+      .mission_title, .why_title {
+        font-size: calc(${mainTheme.missionTitleFont} * 0.8);
+        padding: 15px;
+      }
+
+      .mission p, .why p {
+        width: 95%;
+        font-size: calc(${mainTheme.p_size} * 0.9);
+      }
+
+      .first_image img {
+        width: 95%;
+        border-radius: 10px;
+      }
+
+      .request_console button {
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 30px;
+      }
     }
   </style>
   `
@@ -200,5 +271,6 @@ function mainPage(){
 	document.getElementById('main_page').innerHTML = html; 
 	
 }
+
 
 mainPage()
