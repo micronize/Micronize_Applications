@@ -1,0 +1,204 @@
+
+function Home_page() {
+  this.titleOne = "Micronize Applications, LLC.";
+  this.titleTwo = "Mission";
+  this.titleWhy = "Services";
+
+  this.getTitleOne = function() {
+	  return this.titleOne
+  }
+  this.getTitleTwo = function(){
+	  return this.titleTwo; 
+  }
+  
+  this.getTitleWhy = function(){
+	  return this.titleWhy; 
+  }
+}
+
+const home = new Home_page(); 
+ 
+
+
+
+
+var mainTheme = {
+	title: "Micronize Applications LLC",
+	fontSize_title: "60px",
+	color_title: "#1a62ff",
+	image_one: "site_image/secondImage.jpg",
+	missionTitleFont: "60px",
+	p_size: "25px",
+	mission: `
+		Our mission is to empower small businesses by providing simple, affordable, and reliable data collection tools 
+		that turn everyday information into meaningful, actionable insights. We believe that data should not be 
+		complicated or expensive to access, every business, regardless of size or technical expertise, deserves 
+		the ability to understand their operations, customers, and opportunities.
+	`, 
+	
+	why: `
+		Tell us what you know about your business and what you want to learn. Share what you know about your customers and what insights you would like to gain about them. 			Whatever data you need to grow your company, our team will create a customized application tailored to your goals. From CRM systems to inventory management tools, 		       Micronize Applications will bring your vision to life.
+		You do not have to spend astronomical amounts of money to get a high-quality application. Get great value at a fair price. Request a free consultation today and explore 		examples of our past projects to see why we are the right team for you.
+
+	`
+};
+
+
+function mainPageCss() {
+  var css = `
+  <style>
+    /* === General Layout === */
+    .mainpage_container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 40px 15px 60px;
+      background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mainpage_container a {
+      font-size: ${mainTheme.fontSize_title};
+      color: ${mainTheme.color_title};
+      text-decoration: none;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .mainpage_container a:hover {
+      color: #0078ff;
+      transform: scale(1.05);
+    }
+
+    /* === Hero Image === */
+    .first_image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      padding: 20px 0;
+    }
+
+    .first_image img {
+      width: 70%;
+      height: auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .first_image img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* === Section Titles === */
+    .mission_title, .why_title {
+      width: 100%;
+      padding: 25px;
+      display: flex;
+      justify-content: center;
+      font-size: ${mainTheme.missionTitleFont};
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      color: ${mainTheme.color_title};
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* === Paragraph Sections === */
+    .mission, .why {
+      width: 100%;
+      padding: 10px 20px 40px;
+      display: flex;
+      justify-content: center;
+      font-size: ${mainTheme.p_size};
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .mission p, .why p {
+      width: 80%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    /* === Call to Action Button === */
+    .request_console {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 90px;
+    }
+
+    .request_console button {
+      width: 320px;
+      height: 70px;
+      background: linear-gradient(135deg, #0078ff, #00c6ff);
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .request_console button:hover {
+      background: linear-gradient(135deg, #00a8ff, #00f2ff);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    .request_console button:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+  `
+  return css;
+}
+function mainPage(){
+	var html = `
+	 ${mainPageCss()}
+	 
+	 <div class="mainpage_container" id="mainpage_container">
+	 <a id="main_title">${home.getTitleOne()}</a>
+	 </div>
+	 
+	 <div class="first_image">
+	 <img src="${mainTheme.image_one}" alt="Data visualization">
+	 </div>
+	 
+	 <div class="mission_container">
+	 <div class="mission_title"><a>${home.getTitleTwo()}</a></div>
+	 <div class="mission"><p>${mainTheme.mission} </p></div>
+	 </div>
+	 
+	 <div class="why_container">
+	 <div class="why_title"><a>${home.getTitleWhy()}</a></div>
+	 <div class="why"><p>${mainTheme.why} </p></div>
+	 </div>
+
+	<div class="request_console" id="request_console">
+
+		<button id="request_button">Request Consoltation</button>
+ 		
+		</div>
+	 
+	
+	 
+	`
+	
+	document.getElementById('main_page').innerHTML = html; 
+	
+}
+
+mainPage()
