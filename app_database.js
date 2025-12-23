@@ -6,8 +6,10 @@
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        business: "Green Peace",
         name: 'Alex',
-        age: 15
+        email: "mark.young@micronizeapp.com",
+        phone: 7203395378
       })
     });
 
