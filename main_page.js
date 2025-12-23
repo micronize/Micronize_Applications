@@ -26,7 +26,7 @@ var mainTheme = {
 	title: "Micronize Applications LLC",
 	fontSize_title: "60px",
 	color_title: "#1a62ff",
-	image_one: "site_image/secondImage.jpg",
+	image_one: "site_image/micro_logo.png",
 	missionTitleFont: "60px",
 	p_size: "25px",
 	mission: `
@@ -274,3 +274,4 @@ function mainPage(){
 
 
 mainPage()
+
