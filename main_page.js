@@ -1,5 +1,4 @@
 
-
 function Home_page() {
   this.titleOne = "Micronize Applications, LLC.";
   this.titleTwo = "Mission";
@@ -253,6 +252,7 @@ function mainPageCss() {
 	var html = `
 	 ${mainPageCss()}
 	 
+	
 	 
 	 <div class="first_image">
 	 <img src="${mainTheme.image_one}" alt="Data visualization">
@@ -270,7 +270,7 @@ function mainPageCss() {
 
 	<div class="request_console" id="request_console">
 
-		<button id="request_button">Request Consoltation</button>
+		<button id="request_button" onclick="showPopup()">Request Consoltation</button>
  		
 		</div>
 	 
@@ -281,6 +281,116 @@ function mainPageCss() {
 	document.getElementById('main_page').innerHTML = html; 
 	
 }
+function requestConsoleCSS(){
+  return `
+  <style>
+   .form-container {
+            max-width: 100%;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        .consent {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        #submit_inquireBtn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+              background: linear-gradient(135deg, #0078ff, #00c6ff);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #submit_inquireBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #close_pop:hover {
+           cursor: pointer;
+           color: blue; 
+        }
+
+  </style>
+  `
+}
+
+
+
+function requestConsoleUI(){
+  return `
+  ${requestConsoleCSS()}
+   <div class="form-container">
+    <form action="#" method="post">
+    <a id="close_pop" onclick="closePopup()">close</a>
+        <label for="company_name">Company</label>
+        <input type="text" id="company_name" name="company_name" required>
+
+        <label for="lastName">Name</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <div class="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">
+                I consent to receive phone calls regarding my inquiry.
+            </label>
+        </div>
+
+        <button id="submit_inquireBtn" type="submit">Submit</button>
+    </form>
+</div>
+
+  
+  
+  
+  `
+}
+
+
+function showPopup(){
+  const popup = document.getElementById("popup_");
+  const overlay = document.getElementById("overlay");
+  const popupContent = document.getElementById("popupContent_");
+
+  popupContent.innerHTML = requestConsoleUI()
+  popup.style.display = "block";
+  overlay.style.display = "block";
+}
+
+
+function closePopup(){
+  const popup = document.getElementById("popup_");
+  const overlay = document.getElementById("overlay");
+  const popupContent = document.getElementById("popupContent_");
+
+  popupContent.innerHTML = ""
+  popup.style.display = "none";
+  overlay.style.display = "none";
+}
+
+
 
 mainPage()
-
