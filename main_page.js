@@ -253,9 +253,6 @@ function mainPageCss() {
 	var html = `
 	 ${mainPageCss()}
 	 
-	 <div class="mainpage_container" id="mainpage_container">
-	 <a id="main_title">${home.getTitleOne()}</a>
-	 </div>
 	 
 	 <div class="first_image">
 	 <img src="${mainTheme.image_one}" alt="Data visualization">
@@ -286,3 +283,4 @@ function mainPageCss() {
 }
 
 mainPage()
+
