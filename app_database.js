@@ -1,6 +1,6 @@
 
   async function sendData() {
-    const response = await fetch('https://api.example.com/data', {
+    const response = await fetch('sql3.freesqldatabase.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
