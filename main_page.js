@@ -1,4 +1,5 @@
 
+
 function Home_page() {
   this.titleOne = "Micronize Applications, LLC.";
   this.titleTwo = "Mission";
@@ -76,28 +77,25 @@ function mainPageCss() {
       transform: scale(1.05);
     }
 
-    /* === Hero Image === */
+    /* === HERO IMAGE === */
     .first_image {
-      width: 100%;
+      padding: 50px 20px;
       display: flex;
       justify-content: center;
-      background-color: #fff;
-      padding: 20px 0;
     }
 
     .first_image img {
-      width: 70%;
-      height: auto;
-      max-width: 1000px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 18px;
+     
+      transition: transform .3s ease;
     }
 
     .first_image img:hover {
       transform: scale(1.03);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     }
+
 
     /* === Section Titles === */
     .mission_title, .why_title {
@@ -190,10 +188,7 @@ function mainPageCss() {
         width: 90%;
       }
 
-      .first_image img {
-        width: 90%;
-      }
-
+   
       .request_console button {
         width: 220px;
         height: 55px;
@@ -220,10 +215,29 @@ function mainPageCss() {
         font-size: calc(${mainTheme.p_size} * 0.9);
       }
 
-      .first_image img {
-        width: 95%;
-        border-radius: 10px;
-      }
+      .first_image {
+  position: relative;
+  background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
+  padding: 60px 0;
+}
+
+.first_image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(245,247,250,1),
+    rgba(245,247,250,0.6),
+    rgba(245,247,250,1)
+  );
+  pointer-events: none;
+}
+
+.first_image img {
+  position: relative;
+  z-index: 1;
+}
 
       .request_console button {
         width: 200px;
@@ -235,8 +249,7 @@ function mainPageCss() {
   </style>
   `
   return css;
-}
-function mainPage(){
+}function mainPage(){
 	var html = `
 	 ${mainPageCss()}
 	 
@@ -272,6 +285,4 @@ function mainPage(){
 	
 }
 
-
 mainPage()
-
