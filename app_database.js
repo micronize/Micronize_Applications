@@ -17,3 +17,5 @@
     console.log(result);
   }
 
+sendData()
+
